@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title>Forca ou Queda</title>
+ 
+ <style>
+ body {
+  background: url("https://i.postimg.cc/TY28jTqJ/bg4-ia.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
+  font-family: "Gabarito", sans-serif;
+  margin: 20px;
+}
+
+.logo {
+  text-align: end;
+}
+
+.logo img {
+  width: 40%;
+}
+.conteudo-jogo {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 5px #ff1b7b;
+  margin: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.conteudo-jogo:hover {
+  background: rgba(0, 0, 0);
+  box-shadow: 0 0 5px #19caca;
+}
+ h2,
+p {
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background: #ff1b7b;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #19caca;
+}
+ </style>
+ 
+</head>
+
+<body>
+ 
+ <script>
+ //Preciso criar uma lista com os 3 jogadores
+ personagem = ["", "", ""]
+ 
+ viloes = ["", "", ""]
+ 
+ forcaPersonagem = 0
+ forcaViloes = 0
+ 
+ alert("O array Personagem contem: " + personagem)
+ for(let i=0; i<3; i++){
+  escolhaPersonagem = prompt("Digite o nome do seu personagem" + (1 + 3))
+  personagem[i] = escolhaPersonagem
+   //Calcular a força de cada personagem, e depois somar pra saber a força do time
+ forcaPersonagem = forcaPersonagem + Math.floor(Math.random() * 10) + 1
+  //forcaPersonagem += Math.floor(Math.random() * 10) + 1 //Maneira mais avançada de fazer a mesma coisa
+ }
+ console.log("Agora, o Array Personagem Contem: " + personagem)
+  console.log("Inicio Viloes:"+ viloes)
+  for(let i=0; i<3; i++){
+   indiceAleatorio = Math.floor(Math.random() * 5)
+   viloesPossiveis = ["Juliana", "Carmem", "Maria", "Fernanda", "Catarina"]
+   viloes[i] = viloesPossiveis[indiceAleatorio]
+    // Calcular a força de cada personagem do time do computador
+   forcaViloes = forcaViloes + Math.floor(Math.random() * 10) + 1
+   
+  }
+   console.log("Final Viloes:"+ viloes)
+   
+ //Comparar os dois times para saber quem venceu.
+   if (forcaPersonagem > forcaViloes){
+    alert("Seu time é muito forte! Voce ganhou a disputa de cabo de guerra! Sua forca foi " + forcaPersonagem)
+   }
+   else{
+    if (forcaPersonagem < forcaViloes){
+     alert("Seu time é fraquinho. O computador ganhou o cabo de guerra com forca de " + forcaViloes)
+    }
+     else{
+      alert("Os dois times tem a mesma forca! Voces empataram!")
+     }
+   }
+
+ </script>
+ 
+  <div class="logo">
+    <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo da Imersão Dev" />
+  </div>
+
+  <div class="titulo">
+    <h2>Força ou Queda</h2>
+  </div>
+
+  <main class="conteudo-jogo">
+    <div id="container">
+      <h2>Escolha 3 jogadores para seu time:</h2>
+
+      <p id="informacoesJogador" class="resultado"></p>
+      <p id="informacoesComputador" class="resultado"></p>
+      <button id="resultadoBtn" style="display:none;">Ver Resultado</button>
+      <h1 id="resultadoFinal" class="resultado"></h1>
+  </main>
+</body>
+
+</html>
